@@ -8,6 +8,8 @@ Vagrant.configure("2") do |config|
     config.vm.hostname = "scotchbox"
     #Used by vagrant to display a webpage of installed stuff.
     config.vm.synced_folder "./public", "/var/www/public", :mount_options => ["dmode=777", "fmode=666"]
+    
+    #SET THE LOCAL PATH IN THIS COMMAND TO POINT TO YOUR ROOT WEBSITE PROJECT.
     config.vm.synced_folder "../WEBSITE", "/var/www/html", :mount_options => ["dmode=777", "fmode=666"]
     
 

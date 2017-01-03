@@ -1,3 +1,43 @@
+This project sets up a vagrant box using Scotch Box (see below), and provisions it for local development. 
+It is intended to be cloned into a folder alongside your main project.
+
+When using this project, you'll need to setup a few things first:
+
+## Vagrantfile
+
+In the vagrantfile, set the local path in second synced_folder. This should
+point to the root of your project (you'll set the path to the sub-folder to serve 
+as the website in the provisioning script).
+
+##provision.sh
+
+In the provision.sh, enter values for the variables at the top of the file:
+
+DEV_FOLDER - This is the folder path (relative to the synced_folder path you 
+set above in the Vagrantfile) to the folder that will be the document root
+served by apache for your development site.
+
+DEV_URL - The url apache should use for the dev site.
+
+DIST_FOLDER - This is the folder path (relative to the synced_folder path you 
+set above in the Vagrantfile) to the folder that will be the document root
+served by apache for the compiled dist version of your site.
+
+DIST_URL - The url apache should use for the dist site.
+
+PASSWORD - (unused) When creating accounts, this password will be used.
+
+The provision script does several things:
+- Update to php7
+- install mod rewrite
+- add urls to the hosts file
+- Setup virtual hosts in apache
+
+DON'T FORGET TO EDIT YOUR LOCAL HOSTS FILE TO POINT THE URL'S YOU ENTER IN THE
+PROVISION.SH TO THE VAGRANT BOX'S IP ADDRESS. YOU'LL GET A NOTICE ABOUT THIS
+CONTAINING ALL OF THE INFO YOU NEED WHEN THE PROVISIONING IS COMPLETE.
+
+
 Scotch Box
 ==========
 
